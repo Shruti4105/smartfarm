@@ -1,0 +1,176 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Complete FarmSmart App — Fix Dashboard, Quick Access, and Add Payment Method",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "summary": "Fix farmer dashboard layout to ensure all feature sections are fully visible and scrollable without content being hidden or cut off",
+      "acceptanceCriteria": [
+        "All six feature cards are visible on the dashboard without scrolling issues or clipping",
+        "Dashboard layout is fully scrollable and no section is hidden or cut off",
+        "Responsive on both mobile and desktop viewports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Dashboard.tsx",
+          "operation": "modify",
+          "description": "Remove any fixed height constraints, overflow-hidden properties, or layout restrictions that prevent the dashboard grid from displaying all six feature cards (Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers). Ensure the container and grid are fully scrollable and all content renders without being cut off below the fold. Verify responsive behavior on mobile and desktop viewports."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Fix Quick Access / Quick Links section in dashboard and footer so all shortcut links render visibly and are functional",
+      "acceptanceCriteria": [
+        "Quick access section on dashboard shows all shortcut links with icons and labels",
+        "Footer quick navigation links are all visible and navigate to the correct pages",
+        "Links are styled consistently with the app's nature-inspired theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Dashboard.tsx",
+          "operation": "modify",
+          "description": "Add or restore a Quick Access section to the dashboard that displays shortcut links with icons and labels for key features (Soil Analysis, Crop Advisory, Marketplace, Store, Sell Crops, Buy from Farmers). Ensure all links are visible, properly styled with the earthy green/amber theme, and navigate to the correct routes. Use lucide-react icons for visual consistency."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the footer's quick navigation links section to ensure all links render visibly with correct styling, icons, and active route navigation. Verify that all footer links (dashboard, soil analysis, crop advisory, marketplace, store, sell crops, buy from farmers) are present and functional. Apply consistent styling using the app's nature-inspired color tokens."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement a simulated payment method flow for purchases in both the In-App Store and the Seller Marketplace with payment form, order confirmation, and backend storage",
+      "acceptanceCriteria": [
+        "A payment form modal/page appears at checkout in the In-App Store with card fields",
+        "A payment form modal/page appears at checkout in the Seller Marketplace",
+        "Form validates required fields (name, card number, expiry, CVV) before submission",
+        "On successful simulated payment, an order confirmation screen is shown with order ID, items, total, and estimated delivery window",
+        "Completed orders are saved to the backend and retrievable from the farmer's order history",
+        "Payment form is styled consistently with the app's earthy green/amber theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PaymentFormDialog.tsx",
+          "operation": "create",
+          "description": "Create a reusable payment form dialog component that collects cardholder name, card number (masked input), expiry date (MM/YY format), and CVV. Include form validation for all required fields. On submission, trigger the checkout mutation and handle success/error states. Style the dialog using shadcn/ui Dialog component with the app's earthy green/amber theme tokens. Include a loading state during simulated payment processing."
+        },
+        {
+          "path": "frontend/src/pages/OurStore.tsx",
+          "operation": "modify",
+          "description": "Integrate the PaymentFormDialog component into the checkout flow. When the user clicks 'Checkout' or 'Place Order', open the payment dialog with the current cart items and total. After successful payment, navigate to a checkout success page (/checkout-success) with order confirmation details. Clear the cart on successful order placement."
+        },
+        {
+          "path": "frontend/src/pages/CheckoutSuccess.tsx",
+          "operation": "create",
+          "description": "Create a checkout success page that displays order confirmation details including confirmation number, ordered items with quantities and prices, total amount, simulated estimated delivery window (e.g., '3-5 business days'), and a link to view order history. Style the page with the nature-inspired theme and use checkmark icons to indicate success."
+        },
+        {
+          "path": "frontend/src/pages/OrderHistory.tsx",
+          "operation": "create",
+          "description": "Create an order history page for authenticated users that displays all completed orders retrieved from the backend using the useGetOrders query hook. Show order cards with confirmation number, date, items, total, payment method (masked card number), and status. Include filtering or sorting options if multiple orders exist. Style consistently with the app's theme."
+        },
+        {
+          "path": "frontend/src/pages/Marketplace.tsx",
+          "operation": "modify",
+          "description": "Add a 'Buy Now' or 'Add to Cart' action for each product card in the marketplace. When a user selects a product to purchase, open the PaymentFormDialog with the selected product details. After successful payment, show order confirmation via navigation to /checkout-success. Ensure the payment flow integrates with the useCheckout mutation from useQueries.ts."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Verify the useCheckout mutation exists and correctly calls the backend checkout method with items, total, and payment method. Add a useGetOrders query hook that calls backend.getOrders(userId) to retrieve the authenticated user's order history. Ensure both hooks invalidate relevant queries on success and handle errors gracefully."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route definitions for /checkout-success and /order-history pages. Wire the CheckoutSuccess and OrderHistory components to their respective routes. Ensure both routes require authentication and redirect unauthenticated users to /auth. Update any navigation or route path constants if needed."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Add a navigation link to 'Order History' in the authenticated user dropdown menu or main navigation. Ensure the link routes to /order-history and is only visible when the user is authenticated. Style the link consistently with other navigation items."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Audit and complete the entire application to ensure every page and navigation link is accessible, fully functional, and visually consistent",
+      "acceptanceCriteria": [
+        "All routes render their respective pages without blank screens or console errors",
+        "Header navigation links work for all sections",
+        "Footer quick links and farmer-specific links navigate to the correct pages",
+        "Authenticated-only pages redirect unauthenticated users to the login page",
+        "Overall visual consistency is maintained across all pages using the nature-inspired theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Audit all route definitions (auth, dashboard, soil-analysis, crop-advisory, marketplace, our-store, sell-crops, buy-from-farmers, seller-product-management, my-crop-listings, checkout-success, order-history) to ensure each route has a valid component and no routes are missing. Verify that authenticated-only routes have proper beforeLoad guards that redirect unauthenticated users to /auth. Test that the root redirect logic correctly sends users to /dashboard if authenticated or /auth if not."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Audit all navigation links in both desktop and mobile menus to ensure they route to the correct pages and match the routes defined in App.tsx. Verify that all links (Dashboard, Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers, Order History, My Listings, Seller Management) are present, visible, and functional. Ensure the authenticated user dropdown menu works correctly and displays the user's profile name. Test that logout clears queries and redirects to /auth."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "modify",
+          "description": "Audit footer quick links and farmer-specific links to ensure all navigation paths match the routes in App.tsx. Verify that each link navigates correctly to Dashboard, Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers, My Listings, and Seller Management. Ensure links are styled consistently and visible on all pages. Test footer responsiveness on mobile and desktop."
+        },
+        {
+          "path": "frontend/src/pages/Dashboard.tsx",
+          "operation": "modify",
+          "description": "Ensure the dashboard feature grid displays all six cards (Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers) with correct navigation links to their respective pages. Verify that the greeting message displays the user's profile name correctly. Ensure the page uses the app's earthy green/amber theme tokens and displays the generated farm-hero-bg.dim_1440x500.png asset as a hero background or branding element."
+        },
+        {
+          "path": "frontend/src/pages/SoilAnalysis.tsx",
+          "operation": "modify",
+          "description": "Verify the page renders without errors and handles image upload/capture correctly. Ensure the useAnalyzeSoilImage mutation works and displays results (recommended crops and prevention tips). Test error handling and loading states. Ensure consistent styling with the app theme and consider using generated/soil-texture-bg.dim_800x400.png as a background element."
+        },
+        {
+          "path": "frontend/src/pages/CropAdvisory.tsx",
+          "operation": "modify",
+          "description": "Verify the page renders the soil parameter input form correctly and the useGetSmartCropAdvisory mutation returns and displays crop recommendations, risk reduction tips, and sustainable practices. Test form validation and error handling. Ensure the page styling is consistent with the nature-inspired theme."
+        },
+        {
+          "path": "frontend/src/pages/Marketplace.tsx",
+          "operation": "modify",
+          "description": "Verify the page fetches and displays products correctly using the useGetProductsByLocation query. Test search and category filtering. Ensure product cards display all information (name, description, price, location, seller) and the 'Buy Now' action triggers the payment flow. Verify styling consistency with the app theme."
+        },
+        {
+          "path": "frontend/src/pages/OurStore.tsx",
+          "operation": "modify",
+          "description": "Verify the store page displays the product catalog correctly with cart functionality (add, remove, update quantity). Test the checkout flow integration with PaymentFormDialog. Ensure the page is styled consistently with the app's theme and handles edge cases (empty cart, out of stock)."
+        },
+        {
+          "path": "frontend/src/pages/BuyFromFarmers.tsx",
+          "operation": "modify",
+          "description": "Verify the page fetches and displays crop listings using the useGetCropListingsByLocation query. Test search by crop name and location filtering. Ensure crop listing cards display all information (crop name, quantity, price per unit, location, farmer). Verify styling consistency and responsive behavior. Consider adding a 'Contact Farmer' or purchase action if needed."
+        },
+        {
+          "path": "frontend/src/pages/MyCropListings.tsx",
+          "operation": "modify",
+          "description": "Verify the page displays the authenticated user's own crop listings correctly. Test the add listing form dialog (crop name, quantity, price, location) and ensure the useAddCropListing mutation works. Verify that only the user's own listings are shown. Ensure styling is consistent with the app theme."
+        },
+        {
+          "path": "frontend/src/pages/SellerProductManagement.tsx",
+          "operation": "modify",
+          "description": "Verify the page allows authenticated sellers to add and manage their farm products (fertilizers, seeds, pesticides, tools). Test the add product form dialog and ensure the useAddProduct mutation works. Verify that the page filters and displays only the seller's own products. Ensure styling consistency with the app theme."
+        },
+        {
+          "path": "frontend/src/pages/AuthPage.tsx",
+          "operation": "modify",
+          "description": "Verify the authentication flow works correctly: Internet Identity login, first-time profile setup (username and location), and redirect to /dashboard after successful authentication. Test that returning users skip profile setup. Ensure the page styling is consistent with the app theme and displays the generated/farmer-illustration.dim_400x400.png asset as a welcoming illustration."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Audit global styles to ensure the earthy green/amber design token palette is correctly defined for both light and dark modes. Verify that all pages use these tokens consistently. Remove any conflicting or duplicate style definitions. Ensure Tailwind directives are properly set up and custom font families (Nunito, Merriweather) are applied globally."
+        }
+      ]
+    }
+  ]
+}

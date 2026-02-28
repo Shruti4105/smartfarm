@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "A complete farmer-focused web app with login, soil image analysis for crop recommendations, AI-based smart crop advisory, marketplace for buying fertilizers/pesticides from nearest sellers or own store with delivery, platform for farmers to sell their crops/pulses, payment method integration, fully visible farmer dashboard with quick-access sections, and a complete polished website experience.",
+  "architectural_notes": [
+    "App is farmer-focused with dual roles: buyer (farmer) and seller (farmer selling crops)",
+    "AI image analysis needed for soil type detection and crop recommendation",
+    "Geolocation required to connect farmers to nearest product sellers",
+    "Payment method integration required for both in-app store and farmer crop marketplace"
+  ],
+  "known_issues": [
+    "Farmer dashboard missing visible sections below the fold and quick-access shortcuts not showing"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-user-authentication-system-where-farmers-can-register-and-log-in-with-a-username-and-password-store-credentials-securely-in-the-backend-after-login-show-a-personalized-dashboard",
+      "title": "Implement a user authentication system where farmers can register and log in with a username and password. Store credentials securely in the backend. After login, show a personalized dashboard.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-soil-image-upload-analysis-feature-farmers-can-take-or-upload-a-photo-from-the-dashboard-the-backend-receives-the-image-and-performs-a-simulated-analysis-to-determine-if-it-is-a-soil-image-if-it-is-soil-it-returns-a-recommended-crops-to-grow-b-prevention-and-care-tips-for-that-soil-type",
+      "title": "Build a Soil Image Upload & Analysis feature. Farmers can take or upload a photo from the dashboard. The backend receives the image and performs a simulated analysis to determine if it is a soil image. If it is soil, it returns: (a) recommended crops to grow, (b) prevention and care tips for that soil type.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-smart-crop-advisory-system-that-collects-soil-and-environmental-parameters-soil-type-ph-level-moisture-region-climate-via-a-form-and-returns-ai-simulated-recommendations-for-the-most-suitable-crops-to-grow-along-with-sustainable-farming-practices-and-risk-reduction-tips",
+      "title": "Implement a Smart Crop Advisory System that collects soil and environmental parameters (soil type, pH level, moisture, region/climate) via a form and returns AI-simulated recommendations for the most suitable crops to grow, along with sustainable farming practices and risk reduction tips.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-seller-marketplace-where-sellers-can-list-fertilizers-pesticides-seeds-and-other-farming-products-with-name-description-price-and-location-farmers-can-browse-and-search-for-products-and-the-system-shows-sellers-closest-to-their-registered-location-first",
+      "title": "Build a Seller Marketplace where sellers can list fertilizers, pesticides, seeds, and other farming products with name, description, price, and location. Farmers can browse and search for products, and the system shows sellers closest to their registered location first.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-in-app-store-where-farmsmart-sells-fertilizers-pesticides-seeds-and-farming-tools-directly-farmers-can-add-items-to-a-cart-place-orders-and-receive-a-delivery-confirmation-with-an-estimated-delivery-window-of-a-few-days-order-history-must-be-stored-per-farmer",
+      "title": "Implement an In-App Store where FarmSmart sells fertilizers, pesticides, seeds, and farming tools directly. Farmers can add items to a cart, place orders, and receive a delivery confirmation with an estimated delivery window of a few days. Order history must be stored per farmer.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-farmer-marketplace-sell-crops-pulses-where-farmers-can-list-their-harvested-crops-and-pulses-for-sale-to-the-general-public-listings-include-crop-name-quantity-price-per-unit-and-farmer-location-buyers-can-browse-and-contact-the-farmer-or-place-an-order",
+      "title": "Build a Farmer Marketplace (Sell Crops & Pulses) where farmers can list their harvested crops and pulses for sale to the general public. Listings include crop name, quantity, price per unit, and farmer location. Buyers can browse and contact the farmer or place an order.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-visually-cohesive-nature-inspired-theme-for-the-entire-application-using-earthy-greens-warm-ambers-and-cream-off-white-tones-evoking-farmland-and-growth-use-clean-bold-typography-for-readability-in-field-conditions-with-card-based-layouts-icon-accents-and-a-welcoming-agricultural-aesthetic-applied-consistently-across-all-pages",
+      "title": "Design a visually cohesive, nature-inspired theme for the entire application using earthy greens, warm ambers, and cream/off-white tones evoking farmland and growth. Use clean, bold typography for readability in field conditions, with card-based layouts, icon accents, and a welcoming agricultural aesthetic applied consistently across all pages.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-farmer-dashboard-so-that-all-feature-sections-are-fully-visible-and-scrollable-ensure-the-dashboard-grid-soil-analysis-crop-advisory-marketplace-our-store-sell-crops-buy-from-farmers-renders-completely-without-any-content-being-hidden-or-cut-off-below-the-fold-remove-any-layout-constraints-overflow-hidden-fixed-height-clipping-that-prevent-content-from-displaying",
+      "title": "Fix the farmer dashboard so that all feature sections are fully visible and scrollable. Ensure the dashboard grid (Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers) renders completely without any content being hidden or cut off below the fold. Remove any layout constraints (overflow hidden, fixed height clipping) that prevent content from displaying.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-quick-access-quick-links-section-in-the-dashboard-and-footer-so-that-all-shortcut-links-render-visibly-and-are-functional-ensure-the-quick-access-shortcuts-in-the-farmer-dashboard-and-the-footer-s-quick-navigation-links-all-appear-with-correct-styling-icons-and-active-route-links",
+      "title": "Fix the Quick Access / Quick Links section in the dashboard and footer so that all shortcut links render visibly and are functional. Ensure the quick-access shortcuts in the farmer dashboard and the footer's quick navigation links all appear with correct styling, icons, and active route links.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-simulated-payment-method-flow-for-purchases-in-both-the-in-app-store-and-the-seller-marketplace-when-a-farmer-checks-out-display-a-payment-form-that-collects-cardholder-name-card-number-masked-expiry-date-and-cvv-on-submission-simulate-payment-processing-and-show-a-success-confirmation-with-order-summary-and-estimated-delivery-window-store-the-completed-order-including-payment-confirmation-status-in-the-backend-per-farmer",
+      "title": "Implement a simulated payment method flow for purchases in both the In-App Store and the Seller Marketplace. When a farmer checks out, display a payment form that collects: cardholder name, card number (masked), expiry date, and CVV. On submission, simulate payment processing and show a success confirmation with order summary and estimated delivery window. Store the completed order (including payment confirmation status) in the backend per farmer.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-audit-and-complete-the-entire-application-to-ensure-every-page-and-navigation-link-is-accessible-fully-functional-and-visually-consistent-all-routes-defined-in-app-tsx-auth-dashboard-soil-analysis-crop-advisory-marketplace-our-store-sell-crops-buy-from-farmers-seller-product-management-my-crop-listings-must-render-without-errors-navigation-in-the-header-and-footer-must-link-to-all-sections-correctly",
+      "title": "Audit and complete the entire application to ensure every page and navigation link is accessible, fully functional, and visually consistent. All routes defined in App.tsx (auth, dashboard, soil analysis, crop advisory, marketplace, our store, sell crops, buy from farmers, seller product management, my crop listings) must render without errors. Navigation in the header and footer must link to all sections correctly.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "User login with username and password",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Farmers can upload soil images for AI-based crop recommendation and prevention tips",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "AI smart crop advisory system based on soil and environmental parameters",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Connect farmers to nearest sellers of fertilizers and other farming products",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "In-app store for farmers to buy fertilizers/products with delivery in a few days",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Platform for farmers to sell their crops and pulses to the public via the app",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add payment method integration for purchases in the in-app store and marketplace",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Fix farmer dashboard to show all sections properly including quick-access shortcuts and content below the fold",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "FarmSmart",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

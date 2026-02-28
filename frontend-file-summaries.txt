@@ -1,0 +1,6 @@
+{
+  "frontend/src/pages/SoilAnalysis.tsx": "Soil image upload and analysis page where farmers can upload or capture a soil photo, send it to the backend for analysis, and view recommended crops and prevention tips. Fixed by moving the ShoppingBag import to the top-level import statement instead of a duplicate at the bottom of the file.",
+  "frontend/src/pages/MyCropListings.tsx": "Complete farmer crop listing management page allowing authenticated farmers to view their own listings with stats, add new crop listings via a dialog form, and navigate to the public buy-from-farmers page.",
+  "frontend/src/pages/SellerProductManagement.tsx": "Complete seller product management page allowing authenticated users to list farming products (fertilizers, seeds, pesticides, tools) for sale in the marketplace, with a dialog form for adding new listings and a view of their existing products.",
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend interactions including user profile, soil analysis, crop advisory, marketplace products, store items, crop listings, checkout, and order history. Re-adds the `useGetAllProducts` and `useGetAllCropListings` convenience hooks that fetch all records by passing an empty location string to the backend."
+}

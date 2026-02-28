@@ -1,0 +1,101 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-farmer-dashboard-so-that-all-feature-sections-are-fully-visible-and-scrollable-ensure-the-dashboard-grid-soil-analysis-crop-advisory-marketplace-our-store-sell-crops-buy-from-farmers-renders-completely-without-any-content-being-hidden-or-cut-off-below-the-fold-remove-any-layout-constraints-overflow-hidden-fixed-height-clipping-that-prevent-content-from-displaying",
+      "featureTitle": "Fix the farmer dashboard so that all feature sections are fully visible and scrollable. Ensure the dashboard grid (Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers) renders completely without any content being hidden or cut off below the fold. Remove any layout constraints (overflow hidden, fixed height clipping) that prevent content from displaying.",
+      "files": [
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-the-quick-access-quick-links-section-in-the-dashboard-and-footer-so-that-all-shortcut-links-render-visibly-and-are-functional-ensure-the-quick-access-shortcuts-in-the-farmer-dashboard-and-the-footer-s-quick-navigation-links-all-appear-with-correct-styling-icons-and-active-route-links",
+      "featureTitle": "Fix the Quick Access / Quick Links section in the dashboard and footer so that all shortcut links render visibly and are functional. Ensure the quick-access shortcuts in the farmer dashboard and the footer's quick navigation links all appear with correct styling, icons, and active route links.",
+      "files": [
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-simulated-payment-method-flow-for-purchases-in-both-the-in-app-store-and-the-seller-marketplace-when-a-farmer-checks-out-display-a-payment-form-that-collects-cardholder-name-card-number-masked-expiry-date-and-cvv-on-submission-simulate-payment-processing-and-show-a-success-confirmation-with-order-summary-and-estimated-delivery-window-store-the-completed-order-including-payment-confirmation-status-in-the-backend-per-farmer",
+      "featureTitle": "Implement a simulated payment method flow for purchases in both the In-App Store and the Seller Marketplace. When a farmer checks out, display a payment form that collects: cardholder name, card number (masked), expiry date, and CVV. On submission, simulate payment processing and show a success confirmation with order summary and estimated delivery window. Store the completed order (including payment confirmation status) in the backend per farmer.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PaymentFormDialog.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/CheckoutSuccess.tsx",
+        "frontend/src/pages/Marketplace.tsx",
+        "frontend/src/pages/OrderHistory.tsx",
+        "frontend/src/pages/OurStore.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-audit-and-complete-the-entire-application-to-ensure-every-page-and-navigation-link-is-accessible-fully-functional-and-visually-consistent-all-routes-defined-in-app-tsx-auth-dashboard-soil-analysis-crop-advisory-marketplace-our-store-sell-crops-buy-from-farmers-seller-product-management-my-crop-listings-must-render-without-errors-navigation-in-the-header-and-footer-must-link-to-all-sections-correctly",
+      "featureTitle": "Audit and complete the entire application to ensure every page and navigation link is accessible, fully functional, and visually consistent. All routes defined in App.tsx (auth, dashboard, soil analysis, crop advisory, marketplace, our store, sell crops, buy from farmers, seller product management, my crop listings) must render without errors. Navigation in the header and footer must link to all sections correctly.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/pages/AuthPage.tsx",
+        "frontend/src/pages/BuyFromFarmers.tsx",
+        "frontend/src/pages/CropAdvisory.tsx",
+        "frontend/src/pages/Dashboard.tsx",
+        "frontend/src/pages/Marketplace.tsx",
+        "frontend/src/pages/OurStore.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

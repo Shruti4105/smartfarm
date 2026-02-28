@@ -1,0 +1,101 @@
+{
+  "kind": "build_request",
+  "title": "Complete FarmSmart App — Fix Dashboard, Quick Access, and Add Payment Method",
+  "projectName": "FarmSmart",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-8",
+      "text": "Fix the farmer dashboard so that all feature sections are fully visible and scrollable. Ensure the dashboard grid (Soil Analysis, Crop Advisory, Marketplace, Our Store, Sell Crops, Buy from Farmers) renders completely without any content being hidden or cut off below the fold. Remove any layout constraints (overflow hidden, fixed height clipping) that prevent content from displaying.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "for farmers i cant see anything below it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All six feature cards are visible on the dashboard without scrolling issues or clipping",
+        "Dashboard layout is fully scrollable and no section is hidden or cut off",
+        "Responsive on both mobile and desktop viewports"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Fix the Quick Access / Quick Links section in the dashboard and footer so that all shortcut links render visibly and are functional. Ensure the quick-access shortcuts in the farmer dashboard and the footer's quick navigation links all appear with correct styling, icons, and active route links.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "nor in quicks"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Quick access section on dashboard shows all shortcut links with icons and labels",
+        "Footer quick navigation links are all visible and navigate to the correct pages",
+        "Links are styled consistently with the app's nature-inspired theme"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement a simulated payment method flow for purchases in both the In-App Store and the Seller Marketplace. When a farmer checks out, display a payment form that collects: cardholder name, card number (masked), expiry date, and CVV. On submission, simulate payment processing and show a success confirmation with order summary and estimated delivery window. Store the completed order (including payment confirmation status) in the backend per farmer.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "where is the paymentment method"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A payment form modal/page appears at checkout in the In-App Store with card fields",
+        "A payment form modal/page appears at checkout in the Seller Marketplace",
+        "Form validates required fields (name, card number, expiry, CVV) before submission",
+        "On successful simulated payment, an order confirmation screen is shown with order ID, items, total, and estimated delivery window",
+        "Completed orders are saved to the backend and retrievable from the farmer's order history",
+        "Payment form is styled consistently with the app's earthy green/amber theme"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Audit and complete the entire application to ensure every page and navigation link is accessible, fully functional, and visually consistent. All routes defined in App.tsx (auth, dashboard, soil analysis, crop advisory, marketplace, our store, sell crops, buy from farmers, seller product management, my crop listings) must render without errors. Navigation in the header and footer must link to all sections correctly.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "all i need a complete website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All routes render their respective pages without blank screens or console errors",
+        "Header navigation links work for all sections",
+        "Footer quick links and farmer-specific links navigate to the correct pages",
+        "Authenticated-only pages redirect unauthenticated users to the login page",
+        "Overall visual consistency is maintained across all pages using the nature-inspired theme"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change the Internet Identity authentication mechanism",
+    "Do not introduce real payment processing — use simulated/mock payment only",
+    "Preserve all existing backend data models and query hooks",
+    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Real credit card or third-party payment gateway integration (e.g., Stripe live mode)",
+    "New AI or analysis features beyond what already exists",
+    "Redesigning the existing visual theme",
+    "Adding new product categories or backend data models beyond payment/order confirmation"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
