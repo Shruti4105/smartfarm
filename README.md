@@ -82,6 +82,7 @@ Order tracking
 Order history page
 
 🏗 Project Structure
+```
 farmsmart/
 │
 ├── backend/
@@ -119,7 +120,7 @@ farmsmart/
 │
 ├── dfx.json
 └── README.md
-
+```
 🛠 Tech Stack
 Frontend
 
